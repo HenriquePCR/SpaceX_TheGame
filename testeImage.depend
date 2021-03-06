@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1615065929 source:c:\users\pc\desktop\henrique\cefet\cg\testeimage\main.cpp
+	<SDL.h>
+	<SDL_opengl.h>
+	<stdio.h>
+	<SDL_image.h>
+	"string"
+	<SDL_mixer.h>
+
+1615065929 source:c:\users\pc\desktop\henrique\cefet\cg\spacex\main.cpp
+	<SDL.h>
+	<SDL_opengl.h>
+	<stdio.h>
+	<SDL_image.h>
+	"string"
+	<SDL_mixer.h>
+
