@@ -1,9 +1,9 @@
 # SpaceX
  
- Tela inicial\n
+ <h2>Tela inicial</h2>
 ![image](https://user-images.githubusercontent.com/72466642/110223248-35b27400-7eb5-11eb-8ace-bd9fc2916566.png)
 
-Tutorial\n
+Tutorial
 ![image](https://user-images.githubusercontent.com/72466642/110223855-9641b100-7eb5-11eb-86df-4c0edca63415.png)
 
 Gameplay
