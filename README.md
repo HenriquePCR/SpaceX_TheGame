@@ -1,5 +1,23 @@
 # SpaceX
  
+Integrantes do grupo:
+ˋˋˋ
+Henrique Pereira Cristófaro
+Vitor Theodoro Rocha Domingues
+Jefferson Costa Lima Silva
+ ˋˋˋ
+ 
+Bibliotecas Utilizadas:
+ˋˋˋ
+SDL, SDL_image, SDL_mixer: 
+	sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev 
+SOIL: 
+	sudo apt-get install libsoil-dev 
+ ˋˋˋ
+ 
+ Imagens utilizadas
+ 
+ ˋˋˋ
  <h3>Inicio</h3>
 
 ![image](https://user-images.githubusercontent.com/72466642/110223248-35b27400-7eb5-11eb-8ace-bd9fc2916566.png)
@@ -24,6 +42,7 @@
 
 ![image](https://user-images.githubusercontent.com/72466642/110223896-ea4c9580-7eb5-11eb-8324-ac6fc58a8e3b.png)
 
+ˋˋˋ
 
 
 
