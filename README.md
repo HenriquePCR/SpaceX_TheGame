@@ -1,4 +1,4 @@
-# SpaceX
+<h1> SpaceX </h1>
  
 <p>Integrantes do grupo:</p>
 Henrique Pereira Cristófaro<br>
@@ -15,9 +15,8 @@ SOIL: <br>
 sudo apt-get install libsoil-dev <br> 
 
  
- Imagens utilizadas
+<h2>Imagens utilizadas</h2>
  
- ˋˋˋ
  <h3>Inicio</h3>
 
 ![image](https://user-images.githubusercontent.com/72466642/110223248-35b27400-7eb5-11eb-8ace-bd9fc2916566.png)
