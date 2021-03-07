@@ -2,9 +2,9 @@
  
 <div>
 <p>Integrantes do grupo:</p>
-<p>Henrique Pereira Cristófaro</p>
-<p>Vitor Theodoro Rocha Domingues</p>
-<p>Jefferson Costa Lima Silva</p>
+Henrique Pereira Cristófaro<br>
+Vitor Theodoro Rocha Domingues<br>
+Jefferson Costa Lima Silva<br>
 </div>
 
  
