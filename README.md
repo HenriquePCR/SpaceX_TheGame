@@ -1,20 +1,19 @@
 # SpaceX
  
-<div>
 <p>Integrantes do grupo:</p>
 Henrique Pereira Cristófaro<br>
 Vitor Theodoro Rocha Domingues<br>
-Jefferson Costa Lima Silva<br>
-</div>
+<p>Jefferson Costa Lima Silva</p>
+
 
  
-Bibliotecas Utilizadas:
-ˋˋˋ
-SDL, SDL_image, SDL_mixer: 
-	sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev 
-SOIL: 
-	sudo apt-get install libsoil-dev 
- ˋˋˋ
+<p>Bibliotecas Utilizadas:</p>
+
+SDL, SDL_image, SDL_mixer:<br> 
+sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev <br> 
+SOIL: <br> 
+sudo apt-get install libsoil-dev <br> 
+
  
  Imagens utilizadas
  
