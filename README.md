@@ -1,13 +1,13 @@
 <h1> SpaceX </h1>
  
-<p>Integrantes do grupo:</p>
+<h2>Integrantes do grupo:</h2>
 Henrique Pereira Cristófaro<br>
 Vitor Theodoro Rocha Domingues<br>
 <p>Jefferson Costa Lima Silva</p>
 
 
  
-<p>Bibliotecas Utilizadas:</p>
+<h2>Bibliotecas Utilizadas:</h2>
 
 SDL, SDL_image, SDL_mixer:<br> 
 sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev <br> 
@@ -41,7 +41,9 @@ sudo apt-get install libsoil-dev <br>
 
 ![image](https://user-images.githubusercontent.com/72466642/110223896-ea4c9580-7eb5-11eb-8324-ac6fc58a8e3b.png)
 
-ˋˋˋ
+<h2>Vídeo do jogo</h2>
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/y0na6dcO-lY/0.jpg)](https://www.youtube.com/watch?v=y0na6dcO-lY)
 
 
 
