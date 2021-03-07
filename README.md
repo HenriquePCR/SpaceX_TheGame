@@ -43,7 +43,9 @@ sudo apt-get install libsoil-dev <br>
 
 <h2>Vídeo do jogo</h2>
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/XNN8ufNjfm0/0.jpg)](https://www.youtube.com/watch?v=XNN8ufNjfm0)
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/72466642/110234342-b77fbd00-7f08-11eb-916b-f8bc776cbd95.png)](https://www.youtube.com/watch?v=XNN8ufNjfm0)
+
+
 
 
 
