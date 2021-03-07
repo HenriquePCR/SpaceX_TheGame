@@ -1,13 +1,12 @@
 # SpaceX
  
-<p>Integrantes do grupo:</p>
-ˋˋˋ
 <div>
-Henrique Pereira Cristófaro
-Vitor Theodoro Rocha Domingues
-Jefferson Costa Lima Silva
+<p>Integrantes do grupo:</p>
+<p>Henrique Pereira Cristófaro</p>
+<p>Vitor Theodoro Rocha Domingues</p>
+<p>Jefferson Costa Lima Silva</p>
 </div>
- ˋˋˋ
+
  
 Bibliotecas Utilizadas:
 ˋˋˋ
