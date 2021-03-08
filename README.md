@@ -24,7 +24,13 @@ sudo apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsd
 SOIL: <br> 
 sudo apt-get install libsoil-dev <br> 
 
- 
+<h2>Lista de itens adicionais implementados em seu jogo</h2>
+- Vidas<br>
+- Sons<br>
+- Telas<br>
+- Fundo lindão<br>
+- Fases infinitas<br>
+- Aleatoridade no tiro dos inimigos<br>
 <h2>Imagens utilizadas</h2>
  
  <h3>Inicio</h3>
