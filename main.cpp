@@ -6,8 +6,8 @@
 #include <SDL_mixer.h>
 
 
-#define BLOCOS 21 // QUANTIDADE
-#define TIROS 21
+#define BLOCOS 18 // QUANTIDADE
+#define TIROS 18
 
 //configuracoes
 GLuint loadTexture(const std::string&fileName)
@@ -55,6 +55,8 @@ struct Bloco
     bool vivo;
     float tiro;
     float varia=0;
+    float inicioX;
+    float inicioY;
 };
 
 struct Tiro
@@ -66,6 +68,7 @@ struct Tiro
     bool vivo;
     float tiro;
     float varia=0;
+
 };
 
 
@@ -146,6 +149,13 @@ int main(int argc, char* args[])
     float personAlt = 30;
     float distancia = 0;
 
+    //movimento dos blocos
+    bool direcao = true;
+    float velXBloco=0.0;
+    float velYBloco=0.0;
+    int contador=0;
+    float correcao=0;
+
 
     // tiro do personagem
     float inimigoX = personX;
@@ -169,11 +179,11 @@ int main(int argc, char* args[])
     //VALORES DOS STRUCT
     Bloco blocos[BLOCOS];
     Tiro tiros[TIROS];
-    for(int n = 0, x = 4, y = 10; n< BLOCOS; n++, x+=90 )
+    for(int n = 0, x = 40, y = 10; n< BLOCOS; n++, x+=90 )
     {
         if(x>560)
         {
-            x = 4;
+            x = 40;
             y +=40;
         }
         blocos[n].x = x;
@@ -183,11 +193,11 @@ int main(int argc, char* args[])
         blocos[n].vivo = true;
         blocos[n].tiro = 0;
     }
-    for(int n = 0, x = 4, y = 10; n< TIROS; n++, x+=90 )
+    for(int n = 0, x = 40, y = 10; n< TIROS; n++, x+=90 )
     {
         if(x>560)
         {
-            x = 4;
+            x = 40;
             y +=40;
         }
         tiros[n].x = x;
@@ -256,7 +266,7 @@ int main(int argc, char* args[])
     // loop do jogo
     while(executando)
     {
-
+        //-----------------------MENU INICIAL--------------------//
         if(inicio==0)
         {
             //reset
@@ -265,6 +275,11 @@ int main(int argc, char* args[])
             personX=300;
             esq=false;
             dir=false;
+            velXBloco=0;
+            velYBloco=0;
+            contador=0;
+
+            direcao=true;
             for(int i = 0; i <BLOCOS; i++)
             {
                 blocos[i].vivo = true;
@@ -342,7 +357,7 @@ int main(int argc, char* args[])
             // ANIMACAO
             SDL_GL_SwapBuffers();
         }
-        //-----------------------MENU INICIAL--------------------//
+        //-----------------------TUTORIAL--------------------//
         if(inicio==1)
         {
 
@@ -539,13 +554,13 @@ int main(int argc, char* args[])
 
                 if(esq == true)// se seta esquerda for pressionada
                 {
-                    personX -= 0.16;
-                    //lancamento -= 0.2;
+                    personX -= 0.12;
+
                 }
                 else if(dir == true)
                 {
-                    personX += 0.16;
-                    //lancamento += 0.2;
+                    personX += 0.12;
+
                 }
 
                 if(personX<0)
@@ -620,7 +635,7 @@ int main(int argc, char* args[])
                 glEnable(GL_TEXTURE_2D);
                 glBindTexture(GL_TEXTURE_2D, bola_textura);
 
-                // inicia o desenho do inimiogo
+                // inicia o desenho do tiro do personagem
                 if(atirar  == true)
                 {
                     glBegin(GL_QUADS);// GL_POINTS, GL_LINES, GL_LINES_LOOP, GL_QUADS, GL_TRIANGLES, GL_POLIGON
@@ -654,7 +669,7 @@ int main(int argc, char* args[])
                         if(blocos[n].vivo == true)
                         {
                             //COLISAO DOS INIMIGOS COM O TIRO DO PERSONAGEM
-                            if(colisao(Xtotal, Ytotal, inimigoComp, inimigoAlt, blocos[n].x, blocos[n].y, blocos[n].comp, blocos[n].alt) == true)
+                            if(colisao(Xtotal, Ytotal, inimigoComp, inimigoAlt, blocos[n].x+correcao, blocos[n].y, blocos[n].comp, blocos[n].alt) == true)
                             {
                                 blocos[n].vivo = false;
                                 atirar = false;
@@ -742,7 +757,7 @@ int main(int argc, char* args[])
                 glEnable(GL_TEXTURE_2D);
                 glBindTexture(GL_TEXTURE_2D, bola_textura);
 
-                // inicia o desenho do inimiogo
+                // inicia o desenho do tiro
                 if(atirar  == true)
                 {
                     glBegin(GL_QUADS);// GL_POINTS, GL_LINES, GL_LINES_LOOP, GL_QUADS, GL_TRIANGLES, GL_POLIGON
@@ -775,7 +790,7 @@ int main(int argc, char* args[])
                     {
                         if(blocos[n].vivo == true)
                         {
-                            if(colisao(Xtotal, Ytotal, inimigoComp, inimigoAlt, blocos[n].x, blocos[n].y, blocos[n].comp, blocos[n].alt) == true)
+                            if(colisao(Xtotal, Ytotal, inimigoComp, inimigoAlt, blocos[n].x+velXBloco, blocos[n].y+velYBloco, blocos[n].comp, blocos[n].alt) == true)
                             {
                                 blocos[n].vivo = false;
                                 atirar = false;
@@ -792,7 +807,7 @@ int main(int argc, char* args[])
                 glDisable(GL_TEXTURE_2D);
 
 
-
+                //------------------BLOCOS-------------//
 
 
                 // inicia desenho dos blocos
@@ -808,14 +823,45 @@ int main(int argc, char* args[])
                 {
                     if(blocos[n].vivo == true)
                     {
+
                         glTexCoord2d(0,0);
-                        glVertex2f(blocos[n].x, blocos[n].y);
+                        glVertex2f(blocos[n].x+velXBloco+correcao, blocos[n].y+velYBloco);
                         glTexCoord2d(1,0);
-                        glVertex2f(blocos[n].x + blocos[n].comp, blocos[n].y);
+                        glVertex2f(blocos[n].x+velXBloco+correcao+ blocos[n].comp, blocos[n].y+velYBloco);
                         glTexCoord2d(1,1);
-                        glVertex2f(blocos[n].x + blocos[n].comp, blocos[n].y + blocos[n].alt);
+                        glVertex2f(blocos[n].x+velXBloco+correcao+ blocos[n].comp, blocos[n].y + blocos[n].alt+velYBloco);
                         glTexCoord2d(0,1);
-                        glVertex2f(blocos[n].x, blocos[n].y + blocos[n].alt);
+                        glVertex2f(blocos[n].x+velXBloco+correcao, blocos[n].y + blocos[n].alt+velYBloco);
+
+                        if((blocos[n].y+blocos[n].alt+velYBloco)>=400)
+                        {
+                            inicio=3;
+                        }
+
+                        if(direcao==true)
+                        {
+                            contador++;
+                            if(contador%15==0)
+                                velXBloco+=0.02;
+                        }
+                        else if (direcao==false)
+                        {
+                            contador--;
+                            if(contador%15==0)
+                                velXBloco-=0.02;
+                        }
+                        if(contador==38000)
+                        {
+                            direcao=false;
+                            velYBloco+=30;
+
+                        }
+                        else if(contador==-33000)
+                        {
+                            direcao=true;
+                            velYBloco+=30;
+
+                        }
 
 
 
@@ -827,6 +873,8 @@ int main(int argc, char* args[])
 
                 glEnd();
 
+
+
                 // inicia desenho dos tiros dos blocos
 
                 glColor4ub(255, 255, 255, 255);//branco
@@ -835,6 +883,7 @@ int main(int argc, char* args[])
                 glBindTexture(GL_TEXTURE_2D, tiroinimigo_textura);
                 glBegin(GL_QUADS);
 
+                //tiro.inicio
                 for(int n = 0; n <BLOCOS; n++)
                 {
                     if(tiros[n].vivo == true)
@@ -850,18 +899,18 @@ int main(int argc, char* args[])
                             }
 
                             glTexCoord2d(0,0);
-                            glVertex2f(tiros[n].x+30, tiros[n].y+tiros[n].tiro);
+                            glVertex2f(tiros[n].x+28+correcao, tiros[n].y+tiros[n].tiro+velYBloco);
                             glTexCoord2d(1,0);
-                            glVertex2f(tiros[n].x+30 + tiros[n].comp-50, tiros[n].y+tiros[n].tiro);
+                            glVertex2f(tiros[n].x+28+correcao + tiros[n].comp-50, tiros[n].y+tiros[n].tiro+velYBloco);
                             glTexCoord2d(1,1);
-                            glVertex2f(tiros[n].x+30 + tiros[n].comp-50, tiros[n].y+ tiros[n].alt-15+tiros[n].tiro);
+                            glVertex2f(tiros[n].x+28+correcao + tiros[n].comp-50, tiros[n].y+ tiros[n].alt-15+tiros[n].tiro+velYBloco);
                             glTexCoord2d(0,1);
-                            glVertex2f(tiros[n].x+30, tiros[n].y + tiros[n].alt-15+tiros[n].tiro);
+                            glVertex2f(tiros[n].x+28+correcao, tiros[n].y + tiros[n].alt-15+tiros[n].tiro+velYBloco);
                             tiros[n].tiro+=0.048;
 
                         }
                         //COLISAO DOS TIROS COM O PERSONAGEM
-                        if(colisao(tiros[n].x+30, tiros[n].y+tiros[n].tiro, tiros[n].comp-50, tiros[n].alt,personX, personY, personComp, personAlt) == true)
+                        if(colisao(tiros[n].x+30+correcao, tiros[n].y+tiros[n].tiro+velYBloco, tiros[n].comp-50, tiros[n].alt,personX, personY, personComp, personAlt) == true)
                         {
                             vida--;
                             tiros[n].tiro+=1000;
@@ -875,7 +924,7 @@ int main(int argc, char* args[])
                 glEnd();
 
 
-                if(gameover==21)
+                if(gameover==BLOCOS)
                     inicio=4;
 
 

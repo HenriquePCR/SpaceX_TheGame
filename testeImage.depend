@@ -15,3 +15,11 @@
 	"string"
 	<SDL_mixer.h>
 
+1615190501 source:c:\users\pc\desktop\henrique\cefet\cg\space x project\spacex\main.cpp
+	<SDL.h>
+	<SDL_opengl.h>
+	<stdio.h>
+	<SDL_image.h>
+	"string"
+	<SDL_mixer.h>
+
