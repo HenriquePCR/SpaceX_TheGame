@@ -31,7 +31,7 @@ sudo apt-get install libsoil-dev <br>
 - Fundo lindão<br>
 - Fases infinitas<br>
 - Aleatoridade no tiro dos inimigos<br>
-- Inimigos vão ficando mais devagar quando em menos número<br>
+- Inimigos vão ficando mais devagar quando em menor número<br>
 <h2>Imagens utilizadas</h2>
  
  <h3>Início</h3>
