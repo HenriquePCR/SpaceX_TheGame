@@ -34,7 +34,7 @@ sudo apt-get install libsoil-dev <br>
 - Inimigos vão ficando mais devagar quando em menos número<br>
 <h2>Imagens utilizadas</h2>
  
- <h3>Inicio</h3>
+ <h3>Início</h3>
 
 ![image](https://user-images.githubusercontent.com/72466642/110223248-35b27400-7eb5-11eb-8ace-bd9fc2916566.png)
 
